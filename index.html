@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <style>
+        body {
+            background: black;
+            color: white;
+            text-align: center;
+            align-content: center;
+            /*font-family: Arial, Helvetica, sans-serif;*/
+        }
+
+        button {
+            background: none;
+            border: none !important;
+            border-radius: 4px;
+            color: black;
+            /*position: relative;*/
+        }
+
+        button:focus {
+            outline: 0;
+            /*position: relative;*/
+        }
+
+        .question {
+            font-weight: bold;
+        }
+
+        .question-wrapper {
+            /*height: 180px;*/
+        }
+        .choice1a,
+        .choice1b,
+        .choice1c,
+        .choice1d,
+        .choice1e,
+        .choice1f,
+        .choice1g,
+        .choice1h,
+        .choice1i,
+        .choice1j,
+        .choice2a,
+        .choice2b,
+        .choice2c,
+        .choice2d,
+        .choice2e,
+        .choice2f,
+        .choice2g,
+        .choice2h,
+        .choice2i,
+        .choice2j,
+        .choice3a,
+        .choice3b,
+        .choice3c,
+        .choice3d,
+        .choice3e,
+        .choice3f,
+        .choice3g,
+        .choice3h,
+        .choice3i,
+        .choice3j,
+        .choice4a,
+        .choice4b,
+        .choice4c,
+        .choice4d,
+        .choice4e,
+        .choice4f,
+        .choice4g,
+        .choice4h,
+        .choice4i,
+        .choice4j {
+            color: black;
+            width: 280px;
+            height: 30px;
+            /*background: orange;*/
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .choices {
+            height: 300px;
+            text-align: center;
+            margin: 0 auto;
+
+            /*border: 10px red;
+        width: 180px;
+        height: 30px;
+        /*background: blue;
+        margin-bottom: 10px;
+        border-radius: 4px; */
+        }
+    </style>
+    <img src="nba-logo.png" height=160px width=80px>
+    <!--<div class="correct-div">Correct:
+        <div class="correct">0</div>
+    </div>
+    <div class="incorrect-div">Incorrect:
+        <div class="incorrect">0</div>
+    </div>-->
+    <div class="timeDiv">Time:
+        <div id="timer">30</div>
+    </div>
+    <!--<button class="start">Start</button><br>-->
+    <div class="question-wrapper">
+        <br>
+        <!--<div class="pic-holder"><img src="nbalogo.jpg"></div>-->
+        <div class="question1"></div>
+        <div class="question1-image"></div>
+        <br>
+        <button class="choice1a" id="choice1"></button>
+        <br>
+        <button class="choice2a" id="choice2"></button>
+        <br>
+        <button class="choice3a" id="choice3"></button>
+        <br>
+        <button class="choice4a" id="choice4"></button>
+
+        <div class="result1"></div>
+        <br>
+        <div class="question2"></div>
+        <div class="question2-image"></div>
+        <br>
+        <button class="choice1b" id="choice1"></button>
+        <br>
+        <button class="choice2b" id="choice2"></button>
+        <br>
+        <button class="choice3b" id="choice3"></button>
+        <br>
+        <button class="choice4b" id="choice4"></button>
+        <br>
+        <div class="result2"></div>
+        <br>
+        <div class="question3"></div>
+        <div class="question3-image"></div>
+        <br>
+        <button class="choice1c" id="choice1"></button>
+        <br>
+        <button class="choice2c" id="choice2"></button>
+        <br>
+        <button class="choice3c" id="choice3"></button>
+        <br>
+        <button class="choice4c" id="choice4"></button>
+        <br>
+        <div class="result3"></div>
+        <br>
+        <div class="question4"></div>
+        <div class="question4-image"></div>
+        <br>
+        <button class="choice1d" id="choice1"></button>
+        <br>
+        <button class="choice2d" id="choice2"></button>
+        <br>
+        <button class="choice3d" id="choice3"></button>
+        <br>
+        <button class="choice4d" id="choice4"></button>
+        <br>
+        <div class="result4"></div>
+        <br>
+        <div class="question5"></div>
+        <div class="question5-image"></div>
+        <br>
+        <button class="choice1e" id="choice1"></button>
+        <br>
+        <button class="choice2e" id="choice2"></button>
+        <br>
+        <button class="choice3e" id="choice3"></button>
+        <br>
+        <button class="choice4e" id="choice4"></button>
+        <br>
+        <div class="result5"></div>
+        <br>
+        <div class="question6"></div>
+        <div class="question6-image"></div>
+        <br>
+        <button class="choice1f" id="choice1"></button>
+        <br>
+        <button class="choice2f" id="choice2"></button>
+        <br>
+        <button class="choice3f" id="choice3"></button>
+        <br>
+        <button class="choice4f" id="choice4"></button>
+        <br>
+        <div class="result6"></div>
+        <br>
+        <div class="question7"></div>
+        <div class="question7-image"></div>
+        <br>
+        <button class="choice1g" id="choice1"></button>
+        <br>
+        <button class="choice2g" id="choice2"></button>
+        <br>
+        <button class="choice3g" id="choice3"></button>
+        <br>
+        <button class="choice4g" id="choice4"></button>
+        <br>
+        <div class="result7"></div>
+        <br>
+        <div class="question8"></div>
+        <div class="question8-image"></div>
+        <br>
+        <button class="choice1h" id="choice1"></button>
+        <br>
+        <button class="choice2h" id="choice2"></button>
+        <br>
+        <button class="choice3h" id="choice3"></button>
+        <br>
+        <button class="choice4h" id="choice4"></button>
+        <br>
+        <div class="result8"></div>
+        <br>
+        <div class="question9"></div>
+        <div class="question9-image"></div>
+        <br>
+        <button class="choice1i" id="choice1"></button>
+        <br>
+        <button class="choice2i" id="choice2"></button>
+        <br>
+        <button class="choice3i" id="choice3"></button>
+        <br>
+        <button class="choice4i" id="choice4"></button>
+        <br>
+        <div class="result9"></div>
+        <br>
+        <div class="question10"></div>
+        <div class="question10-image"></div>
+        <br>
+        <button class="choice1j" id="choice1"></button>
+        <br>
+        <button class="choice2j" id="choice2"></button>
+        <br>
+        <button class="choice3j" id="choice3"></button>
+        <br>
+        <button class="choice4j" id="choice4"></button>
+        <br>
+        <div class="result10"></div>
+    </div>
+    <div class="timeout"></div>
+    <div id="test">
+        <h3></h3>
+    </div>
+    <div class="done"></div>
+    <br>
+    <br>
+    <div class="play-again">
+
+        <br>Click the Image to Play Again</div>
+    <!--<button class="next-question">Next</button>-->
+    <h3 class="result"></h3>
+</body>
+
+</html>
