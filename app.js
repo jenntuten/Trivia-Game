@@ -635,7 +635,7 @@ $(document).ready(function () {
             //$("#exampleModalCenter").show();
             $(".cover").css('background', 'black');
             $(".cover").css('height', '100%');
-            $(".cover").css('width', '600px');
+            $(".cover").css('width', '100%');
             //$(".cover").append('<p><h2>Game Over!</h2></p>');
             //$(".cover").append('<p><h3>Great work!</h3></p>');
             $(".cover").append('<p><strong>Game over!</strong> <br><br>You got ' + correct + ' answers correct and ' + incorrect + ' answers incorrect. <br><br>Great work!<br><br> Click <strong>Play Again</strong> below for another game.</p>');
@@ -1319,7 +1319,7 @@ $(document).ready(function () {
 
                 $(".cover").css('background', 'black');
                 $(".cover").css('height', '100%');
-                $(".cover").css('width', '600px');
+                $(".cover").css('width', '100%');
                 $(".cover").append('<p><strong>Game over!</strong> <br>You got ' + correct + ' answers correct and ' + incorrect + ' answers incorrect. <br>Great work!<br> Click <strong>Play Again</strong> below for another game.</p>');
 
                 //empty choices
