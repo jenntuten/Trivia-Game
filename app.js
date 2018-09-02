@@ -1,13 +1,10 @@
 $(document).ready(function () {
     let correct = 0;
     let incorrect = 0;
-    let done = false;
-    let used = [];
-    let answerImage = new Image();
 
-    //**8/29 Goal: get rest of buttons working. Add necessary HTML (Questions 7-10) */
+    //**8/29 Goal: get rest of buttons working. Add necessary HTML (Questions 7-10) */This appears to be done.
     //9/1: couldn't play more than a few games; looped through questions and never recycled upon initialize. Copied array to "initializeGame"
-    //Need to clean up overall
+    //Need to clean up overall; emptying the question wrapper doesn't allow for future games to post to the screen.
 
     let questionsAndChoices = [{
         question: "What number did Michael Jordan wear at the end of the 1994-95 season?",
@@ -214,7 +211,7 @@ $(document).ready(function () {
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is San Antonio Spurs.",
         image: "<img src=nbalogo.jpg><br>"
-    },*/
+    },
     {
         question: "Which former NBA player changed his name to Metta World Peace?",
         choices: ["Ron Artest", "Allen Iverson", "Rasheed Wallace", "Kareem Abdul-Jabbar"],
@@ -222,7 +219,7 @@ $(document).ready(function () {
         ifRight: "Correct!",
         ifWrong: "Wrong! The correct answer is Ron Artest.",
         image: "<img src=nbalogo.jpg><br>"
-    },
+    },*/
     {
         question: "Which former NBA player starred in the 1996 movie <em>Kazaam</em>?",
         choices: ["Michael Jordan", "Shaquille O'Neal", "Charles Barkley", "Muggsy Bogues"],
@@ -520,7 +517,6 @@ $(document).ready(function () {
     $(".choice3a").css('background', 'orange');
     $(".choice4a").append(currentQuiz[0].choices[3]);
     $(".choice4a").css('background', 'orange');
-    $(".play-again").empty();
 
     //Question 2
     $(".question2").append(currentQuiz[1].question);
@@ -625,47 +621,24 @@ $(document).ready(function () {
     let interval = setInterval(function () {
         document.getElementById('timer').innerHTML = --seconds_left;
         if (seconds_left <= 0) {
-            document.getElementById('timer').innerHTML = "Time's up! Click the logo below to play again";
+            document.getElementById('timer').innerHTML = "Time's up!";
             clearInterval(interval);
-            //seconds_left = 10;
 
             //disable buttons upon timeout
             $(":button").attr('disabled', true);
-            $(".done").append('<strong>Correct:</strong> ' + correct + '<br><strong>Incorrect: </strong>' + incorrect);
-            //$(".question-wrapper").empty().clone();
-            //$(".question-wrapper").html("");
-            //questionWrapper.after("<div class='question-wrapper'></div>");
-            //questionWrapper.append("<div class='question-wrapper'></div>");
-            $(".question1").empty();
-            $(".question2").empty();
-            $(".question3").empty();
-            $(".question4").empty();
-            $(".question5").empty();
-            $(".question6").empty();
-            $(".question7").empty();
-            $(".question8").empty();
-            $(".question9").empty();
-            $(".question10").empty();
-            $(".question1-image").empty();
-            $(".question2-image").empty();
-            $(".question3-image").empty();
-            $(".question4-image").empty();
-            $(".question5-image").empty();
-            $(".question6-image").empty();
-            $(".question7-image").empty();
-            $(".question8-image").empty();
-            $(".question9-image").empty();
-            $(".question10-image").empty();
-            $(".result1").empty();
-            $(".result2").empty();
-            $(".result3").empty();
-            $(".result4").empty();
-            $(".result5").empty();
-            $(".result6").empty();
-            $(".result7").empty();
-            $(".result8").empty();
-            $(".result9").empty();
-            $(".result10").empty();
+            //$(".done").append('<strong>Correct:</strong> ' + correct + '<br><strong>Incorrect: </strong>' + incorrect);
+            /*$(".question-wrapper").append('Game over!');
+            $(".question-wrapper").css('background', 'orange');
+            $(".question-wrapper").css('height', '800px');
+            $(".question-wrapper").css('width', '800px');
+            $(".question-wrapper").css('z-index', '2');*/
+            //$("#exampleModalCenter").show();
+            $(".cover").css('background', 'black');
+            $(".cover").css('height', '100%');
+            $(".cover").css('width', '600px');
+            //$(".cover").append('<p><h2>Game Over!</h2></p>');
+            //$(".cover").append('<p><h3>Great work!</h3></p>');
+            $(".cover").append('<p><strong>Game over!</strong> <br><br>You got ' + correct + ' answers correct and ' + incorrect + ' answers incorrect. <br><br>Great work!<br><br> Click <strong>Play Again</strong> below for another game.</p>');
             $(".choice1a").empty();
             $(".choice1b").empty();
             $(".choice1c").empty();
@@ -706,38 +679,11 @@ $(document).ready(function () {
             $(".choice4h").empty();
             $(".choice4i").empty();
             $(".choice4j").empty();
-            $(".choice5a").empty();
-            $(".choice5b").empty();
-            $(".choice5c").empty();
-            $(".choice5d").empty();
-            $(".choice6a").empty();
-            $(".choice6b").empty();
-            $(".choice6c").empty();
-            $(".choice6d").empty();
-            $(".choice7a").empty();
-            $(".choice7b").empty();
-            $(".choice7c").empty();
-            $(".choice7d").empty();
-            $(".choice8a").empty();
-            $(".choice8b").empty();
-            $(".choice8c").empty();
-            $(".choice8d").empty();
-            $(".choice9a").empty();
-            $(".choice9b").empty();
-            $(".choice9c").empty();
-            $(".choice9d").empty();
-            $(".choice10a").empty();
-            $(".choice10b").empty();
-            $(".choice10c").empty();
-            $(".choice10d").empty();
             $(".play-again").append("<img src =nbalogo.jpg><br>Click the image to play again.");
-            //loadNextQuestion();
-            //console.log('seconds left', --seconds_left);
         }
     }, 1000);
 
     function initializeGame() {
-        //clock is restarting, new array is generated but the questions don't appear...ok now 9/1
         console.log('game initialized');
         $(".done").empty();
         $(".play-again").empty();
@@ -949,7 +895,7 @@ $(document).ready(function () {
                 ifRight: "Correct!",
                 ifWrong: "Wrong! The correct answer is San Antonio Spurs.",
                 image: "<img src=nbalogo.jpg><br>"
-            },*/
+            },
             {
                 question: "Which former NBA player changed his name to Metta World Peace?",
                 choices: ["Ron Artest", "Allen Iverson", "Rasheed Wallace", "Kareem Abdul-Jabbar"],
@@ -957,7 +903,7 @@ $(document).ready(function () {
                 ifRight: "Correct!",
                 ifWrong: "Wrong! The correct answer is Ron Artest.",
                 image: "<img src=nbalogo.jpg><br>"
-            },
+            },*/
             {
                 question: "Which former NBA player starred in the 1996 movie <em>Kazaam</em>?",
                 choices: ["Michael Jordan", "Shaquille O'Neal", "Charles Barkley", "Muggsy Bogues"],
@@ -1245,8 +1191,10 @@ $(document).ready(function () {
         }
         console.log('questions/choices: '.questionsAndChoices);
         console.log('current quiz', currentQuiz);
+
         //enable buttons for new game
         $(":button").attr('disabled', false);
+
         //Question 1
         $(".question1").append(currentQuiz[0].question);
         $(".choice1a").append(currentQuiz[0].choices[0]);
@@ -1257,7 +1205,6 @@ $(document).ready(function () {
         $(".choice3a").css('background', 'orange');
         $(".choice4a").append(currentQuiz[0].choices[3]);
         $(".choice4a").css('background', 'orange');
-        $(".play-again").empty();
 
         //Question 2
         $(".question2").append(currentQuiz[1].question);
@@ -1358,51 +1305,24 @@ $(document).ready(function () {
         $(".choice4j").append(currentQuiz[9].choices[3]);
         $(".choice4j").css('background', 'orange');
 
-        //***times out, but doesn't load new game.
         let seconds_left = 20;
         let interval = setInterval(function () {
             document.getElementById('timer').innerHTML = --seconds_left;
             if (seconds_left <= 0) {
-                document.getElementById('timer').innerHTML = "Time's up! Click the logo below to play again";
+                document.getElementById('timer').innerHTML = "Time's up!";
                 clearInterval(interval);
-                $(".done").append('<strong>Correct:</strong> ' + correct + '<br><strong>Incorrect: </strong>' + incorrect);
-                //$(".question-wrapper").empty();
-                $(".play-again").append("<img src =nbalogo.jpg><br>Click the image to play again.");
-                //loadNextQuestion();
-                //console.log('seconds left', --seconds_left);
-                $(":button").attr('disabled', true);
                 //$(".done").append('<strong>Correct:</strong> ' + correct + '<br><strong>Incorrect: </strong>' + incorrect);
-                //$(".question-wrapper").empty();
-                $(".question1").empty();
-                $(".question2").empty();
-                $(".question3").empty();
-                $(".question4").empty();
-                $(".question5").empty();
-                $(".question6").empty();
-                $(".question7").empty();
-                $(".question8").empty();
-                $(".question9").empty();
-                $(".question10").empty();
-                $(".question1-image").empty();
-                $(".question2-image").empty();
-                $(".question3-image").empty();
-                $(".question4-image").empty();
-                $(".question5-image").empty();
-                $(".question6-image").empty();
-                $(".question7-image").empty();
-                $(".question8-image").empty();
-                $(".question9-image").empty();
-                $(".question10-image").empty();
-                $(".result1").empty();
-                $(".result2").empty();
-                $(".result3").empty();
-                $(".result4").empty();
-                $(".result5").empty();
-                $(".result6").empty();
-                $(".result7").empty();
-                $(".result8").empty();
-                $(".result9").empty();
-                $(".result10").empty();
+                $(".play-again").append("<img src =nbalogo.jpg><br>Click the image to play again.");
+
+                //disable any buttons that haven't been clicked.
+                $(":button").attr('disabled', true);
+
+                $(".cover").css('background', 'black');
+                $(".cover").css('height', '100%');
+                $(".cover").css('width', '600px');
+                $(".cover").append('<p><strong>Game over!</strong> <br>You got ' + correct + ' answers correct and ' + incorrect + ' answers incorrect. <br>Great work!<br> Click <strong>Play Again</strong> below for another game.</p>');
+
+                //empty choices
                 $(".choice1a").empty();
                 $(".choice1b").empty();
                 $(".choice1c").empty();
@@ -1443,41 +1363,15 @@ $(document).ready(function () {
                 $(".choice4h").empty();
                 $(".choice4i").empty();
                 $(".choice4j").empty();
-                $(".choice5a").empty();
-                $(".choice5b").empty();
-                $(".choice5c").empty();
-                $(".choice5d").empty();
-                $(".choice6a").empty();
-                $(".choice6b").empty();
-                $(".choice6c").empty();
-                $(".choice6d").empty();
-                $(".choice7a").empty();
-                $(".choice7b").empty();
-                $(".choice7c").empty();
-                $(".choice7d").empty();
-                $(".choice8a").empty();
-                $(".choice8b").empty();
-                $(".choice8c").empty();
-                $(".choice8d").empty();
-                $(".choice9a").empty();
-                $(".choice9b").empty();
-                $(".choice9c").empty();
-                $(".choice9d").empty();
-                $(".choice10a").empty();
-                $(".choice10b").empty();
-                $(".choice10c").empty();
-                $(".choice10d").empty();
-                // $(".play-again").append("<img src =nbalogo.jpg><br>Click the image to play again.");
             }
         }, 1000);
     }
 
     //QUESTION 1 CHOICES
-    //disabled buttons once selection is made--done
+    //disable all buttons on each question once selection is made
     $(".choice1a").on('click', function () {
         console.log('choice1a clicked');
-        $(".question1-image").append(currentQuiz[0].image); //append image
-        //disabled all other buttons upon choosing an answer
+        $(".question1-image").append(currentQuiz[0].image);
         $(this).attr('disabled', 'disabled');
         $(".choice2a").attr('disabled', 'disabled');
         $(".choice3a").attr('disabled', 'disabled');
@@ -1588,7 +1482,6 @@ $(document).ready(function () {
         }
     })
     //Question 2 choices
-
     $(".choice1b").on('click', function () {
         console.log('choice1b clicked');
         $(".question2-image").append(currentQuiz[1].image);
@@ -1615,7 +1508,6 @@ $(document).ready(function () {
             $(".choice3b").empty();
             $(".choice4b").empty();
             document.querySelector(".result2").innerHTML = currentQuiz[1].ifWrong;
-
         }
     })
     $(".choice2b").on('click', function () {
@@ -1700,7 +1592,7 @@ $(document).ready(function () {
         }
     })
 
-    //Q3 choices
+    //Question 3 choices
     $(".choice1c").on('click', function () {
         console.log('choice1c clicked');
         $(".question3-image").append(currentQuiz[2].image);
@@ -2033,7 +1925,7 @@ $(document).ready(function () {
         }
     })
 
-    //Question 6 choices --> fix indices from 6-10
+    //Question 6 choices
     $(".choice1f").on('click', function () {
         console.log('choice1f clicked');
         $(".question6-image").append(currentQuiz[5].image);
@@ -2590,19 +2482,45 @@ $(document).ready(function () {
         }
     })
 
-    //delete most of below
-
     $(".play-again").on("click", function () {
         //loadNewQuestion();
+        $(".cover").empty();
+        $(".cover").css('background', 'none');
+        $(".cover").css('height', 'auto');
+        $(".question1").empty();
+        $(".question2").empty();
+        $(".question3").empty();
+        $(".question4").empty();
+        $(".question5").empty();
+        $(".question6").empty();
+        $(".question7").empty();
+        $(".question8").empty();
+        $(".question9").empty();
+        $(".question10").empty();
+        $(".question1-image").empty();
+        $(".question2-image").empty();
+        $(".question3-image").empty();
+        $(".question4-image").empty();
+        $(".question5-image").empty();
+        $(".question6-image").empty();
+        $(".question7-image").empty();
+        $(".question8-image").empty();
+        $(".question9-image").empty();
+        $(".question10-image").empty();
+        $(".result1").empty();
+        $(".result2").empty();
+        $(".result3").empty();
+        $(".result4").empty();
+        $(".result5").empty();
+        $(".result6").empty();
+        $(".result7").empty();
+        $(".result8").empty();
+        $(".result9").empty();
+        $(".result10").empty();
         console.log('play again clicked');
         $(".result").empty();
-        //document.querySelector(".correct").innerHTML = 0;
-        //document.querySelector(".incorrect").innerHTML = 0;
-        //correct = 0; //this reset the score, but nothing happens when start is clicked after a game resets
-        //incorrect = 0;
         console.log('total score', parseInt(correct) + parseInt(incorrect));
-        initializeGame();//neither this nor initialize work
-        //location.reload();
+        initializeGame();
     })
 })
 

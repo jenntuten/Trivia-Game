@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="app.js"></script>
+    <script src="app2.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
@@ -22,15 +22,26 @@
             align-content: center;
             /*font-family: Arial, Helvetica, sans-serif;*/
         }
-
+        .game-wrapper {
+            
+        }
         button {
             background: none;
             border: none !important;
             border-radius: 4px;
             color: black;
-            /*position: relative;*/
+            /*position: fixed;*/
         }
-
+p, h2, h3 {
+    position: fixed;
+    margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+font-size: 24px;
+    text-align: center;
+    max-width: 250px;
+}
         button:focus {
             outline: 0;
             /*position: relative;*/
@@ -38,10 +49,24 @@
 
         .question {
             font-weight: bold;
+            
         }
-
+        .cover {
+            position: absolute;
+            /*height: 800px;
+            width: 600px;*/
+            
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+        }
         .question-wrapper {
-            /*height: 180px;*/
+            /*height: 1800px;*/
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            
         }
         .choice1a,
         .choice1b,
@@ -117,9 +142,30 @@
     </div>
     <!--<button class="start">Start</button><br>-->
     <div class="question-wrapper">
+     <!--
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <div class="cover"></div>
         <br>
         <!--<div class="pic-holder"><img src="nbalogo.jpg"></div>-->
-        <div class="question1"></div>
+        <div class="question1">Question 1: </div>
         <div class="question1-image"></div>
         <br>
         <button class="choice1a" id="choice1"></button>
@@ -129,10 +175,9 @@
         <button class="choice3a" id="choice3"></button>
         <br>
         <button class="choice4a" id="choice4"></button>
-
         <div class="result1"></div>
         <br>
-        <div class="question2"></div>
+        <div class="question2">Question 2: </div>
         <div class="question2-image"></div>
         <br>
         <button class="choice1b" id="choice1"></button>
@@ -145,7 +190,7 @@
         <br>
         <div class="result2"></div>
         <br>
-        <div class="question3"></div>
+        <div class="question3">Question 3: </div>
         <div class="question3-image"></div>
         <br>
         <button class="choice1c" id="choice1"></button>
@@ -158,7 +203,7 @@
         <br>
         <div class="result3"></div>
         <br>
-        <div class="question4"></div>
+        <div class="question4">Question 4: </div>
         <div class="question4-image"></div>
         <br>
         <button class="choice1d" id="choice1"></button>
@@ -171,7 +216,7 @@
         <br>
         <div class="result4"></div>
         <br>
-        <div class="question5"></div>
+        <div class="question5">Question 5: </div>
         <div class="question5-image"></div>
         <br>
         <button class="choice1e" id="choice1"></button>
@@ -184,7 +229,7 @@
         <br>
         <div class="result5"></div>
         <br>
-        <div class="question6"></div>
+        <div class="question6">Question 6: </div>
         <div class="question6-image"></div>
         <br>
         <button class="choice1f" id="choice1"></button>
@@ -197,7 +242,7 @@
         <br>
         <div class="result6"></div>
         <br>
-        <div class="question7"></div>
+        <div class="question7">Question 7: </div>
         <div class="question7-image"></div>
         <br>
         <button class="choice1g" id="choice1"></button>
@@ -210,7 +255,7 @@
         <br>
         <div class="result7"></div>
         <br>
-        <div class="question8"></div>
+        <div class="question8">Question 8: </div>
         <div class="question8-image"></div>
         <br>
         <button class="choice1h" id="choice1"></button>
@@ -223,7 +268,7 @@
         <br>
         <div class="result8"></div>
         <br>
-        <div class="question9"></div>
+        <div class="question9">Question 9: </div>
         <div class="question9-image"></div>
         <br>
         <button class="choice1i" id="choice1"></button>
@@ -236,7 +281,7 @@
         <br>
         <div class="result9"></div>
         <br>
-        <div class="question10"></div>
+        <div class="question10">Question 10: </div>
         <div class="question10-image"></div>
         <br>
         <button class="choice1j" id="choice1"></button>
@@ -258,7 +303,7 @@
     <br>
     <div class="play-again">
 
-        <br>Click the Image to Play Again</div>
+        <br></div>
     <!--<button class="next-question">Next</button>-->
     <h3 class="result"></h3>
 </body>
