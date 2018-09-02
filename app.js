@@ -617,7 +617,7 @@ $(document).ready(function () {
     $(".choice4j").append(currentQuiz[9].choices[3]);
     $(".choice4j").css('background', 'orange');
 
-    let seconds_left = 20;
+    let seconds_left = 60;
     let interval = setInterval(function () {
         document.getElementById('timer').innerHTML = --seconds_left;
         if (seconds_left <= 0) {
@@ -1305,7 +1305,7 @@ $(document).ready(function () {
         $(".choice4j").append(currentQuiz[9].choices[3]);
         $(".choice4j").css('background', 'orange');
 
-        let seconds_left = 20;
+        let seconds_left = 60;
         let interval = setInterval(function () {
             document.getElementById('timer').innerHTML = --seconds_left;
             if (seconds_left <= 0) {
